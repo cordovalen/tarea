@@ -1,0 +1,37 @@
+<%- include ("../layouts/cabecera.ejs") %>  
+        <br/>
+        <br/>
+        <a href="/productos/crear" class="btn btn-primary" type="button">Crear producto</a>
+        </br>
+    </br>
+        <table class="table table-light">
+            <thead class="thead-light">
+                <tr>
+                    <th>Referencia</th>
+                    <th>Precio</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for( let producto = 0; producto < productos.length; producto++ ) { %>
+                    <tr>
+                        <td> <%=productos[producto].referencia %> </td>
+                        <td> $ <%=productos[producto].precio %> </td>
+                        <td> <%=productos[producto].descripcion %> </td>
+                        <td> <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                            <form  class="form-inline" method="get" action="/productos/editar/<%=productos[producto].id_producto%>">
+                                <button type="submit" class="bbutton bi-pencil-square"></button>
+                            </form>
+                        </div> | 
+                            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                                <form class="form-inline" method="post" action="/productos/eliminar/<%=productos[producto].id_producto %>">
+                                    <button class="bbutton bi-trash3"></button>
+                                </form>
+                            </div>
+                             </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <%- include ("../layouts/pie.ejs") %> 

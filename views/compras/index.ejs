@@ -1,0 +1,35 @@
+<%- include ("../layouts/cabecera.ejs") %>  
+        <br/>
+        <br/>
+        <a href="/compras/crear" class="btn btn-primary" type="button">Crear compra</a>
+        </br>
+    </br>
+        <table class="table table-light">
+            <thead class="thead-light">
+                <tr>
+                    <th>Fecha</th>
+                    <th>Valor</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for( let compra = 0; compra < compras.length; compra++ ) { %>
+                    <tr>
+                        <td> <%=compras[compra].fecha %> </td>
+                        <td> <%=compras[compra].valor %> </td>
+                        <td> <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                            <form  class="form-inline" method="get" action="/compras/editar/<%=compras[compra].id_compra%>">
+                                <button type="submit" class="bbutton bi-pencil-square"></button>
+                            </form>
+                        </div> | 
+                            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                                <form class="form-inline" method="post" action="/compras/eliminar/<%=compras[compra].id_compra %>">
+                                    <button class="bbutton bi-trash3"></button>
+                                </form>
+                            </div>
+                             </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <%- include ("../layouts/pie.ejs") %> 

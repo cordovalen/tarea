@@ -1,0 +1,22 @@
+<%- include ("../layouts/cabecera.ejs") %> 
+<br/>
+<br/>
+<form method="post" action="/productos">
+    <div class="form-group">
+        <label for="my-input">Referencia:</label>
+        <input id="my-input" class="form-control" type="text" name="referencia">
+    </div>
+
+    <div class="form-group">
+        <label for="my-input">Precio:</label>
+        <input id="my-input" class="form-control" type="text" name="precio">
+    </div>
+
+    <div class="form-group">
+        <label for="my-input">Descripcion:</label>
+        <input id="my-input" class="form-control" type="text" name="descripcion">
+    </div>
+
+    <button class="btn btn-primary" type="a">Guardar</button>
+</form>
+<%- include ("../layouts/pie.ejs") %> 
